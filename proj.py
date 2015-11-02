@@ -1,49 +1,68 @@
+#Importing Random module
 import random
 
 #Initial points
 points=50
 
-print "Hello! What is your name?"
-myName = input()
+#Game starts 
+print "----------------------------------------------------------"
+print "Hello! What is your name? =>",
+myName=raw_input()
 
 #Randomizing the number to be guessed
 guessnum=random.randint(1, 20)
 
-chance=0
+#Initialising Chance as 1
+chance=1
 
-print "Hi", myName, ",Lets play guess the number!"
+#Time to guess the number!
+print "Hola", myName, ",Lets play Guess The Number!"
+print "----------------------------------------------------------"
 print "The number is between 1 and 20"
-print "Lets start!!!"
+print "------------------------START-----------------------------"
 
 while (chance<=5):
-	print myName, ",Your", chance, "attempt"
-	guess=input()
-	
-	if (guess==guessnum):
-		print "Woah, great job buddy!"
-		print "You guessed it in the", chance, "th attempt"
-		print "You have", points, "points"
-		break()
-		
-	else:
-		chance+=1
-		points=points-10
-		print "That's not the number I thought of!"
-		print "You have lost 10 points and a chance!"
-		print "You now have", points, "points and", 5-chance, "chances"
-		
-		if (guess>guessnum):
-			print "Hint: The number you thought is bigger than what I thought"
-			
-		else:
-			print "Hint: The number you thought is smaller than what I thought"
-			
-	chance=chance+1
-	
-	
-print "Oops! Your time is up", myName
-print "The number I thought is", guessnum
-	
+    if chance!=5:
+        print myName, ",Your", chance, "attempt =>",
+    else:
+        print myName, ",Your Final attempt =>",
+        
+    guess=input()
+    
+    if (guess==guessnum):
+        print "Woah",myName,"!! Great Job Buddy!"
+        print "You guessed it in the", chance, "th attempt"
+        print "You have", points, "points"
+        print "Thank You for playing Guess The Number"
+        print "--------------------------END-----------------------------"
+        break
+        
+    else:
+        points=points-10
+        print "Awww...That's not the number I thought of!"
+        print "You have lost 10 points and a chance!"
+        print "You now have", points, "points and", 5-chance, "chances"
+            
+        if (guess>guessnum):
+            print "Pss..Take a Hint: The number you thought is bigger than what I thought"      
+        else:
+            print "Pss..Take a Hint: The number you thought is smaller than what I thought"
+
+        
+            
+    print "----------------------------------------------------------"
+    chance=chance+1
+    
+else:
+
+    print "Oops! Your time is up", myName
+    print "The number I thought was", guessnum
+    print "Thank You for playing Guess The Number"
+    print "--------------------------END-----------------------------"
+    
+    
+
+    
 
 
 
